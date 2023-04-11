@@ -37,7 +37,9 @@ public class OrganizationService {
 
 	public UUID createOne(CreateOrganizationRequest createRequest) {
 		var entity = new OrganizationEntity();
-		entity.setName(createRequest.getName()).setCode(this.generateOrganizationCode());
+		entity.setId(UUID.randomUUID())
+				.setName(createRequest.getName())
+				.setCode(this.generateOrganizationCode());
 		var createdEntity = organizationRepository.save(entity);
 		return createdEntity.getId();
 	}
