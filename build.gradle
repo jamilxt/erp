@@ -34,6 +34,11 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
+	// boilerplate code generation - mapstruct
+	def mapStructVersion = '1.5.2.Final'
+	compileOnly "org.mapstruct:mapstruct:${mapStructVersion}"
+	annotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}"
+
 	// configuration processor
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
