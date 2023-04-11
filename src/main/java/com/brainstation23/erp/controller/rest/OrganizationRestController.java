@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +31,7 @@ public class OrganizationRestController {
 
 	@Operation(summary = "Get All Organizations")
 	@GetMapping
-	public ResponseEntity<Page<OrganizationResponse>> getAll(Pageable pageable) {
+	public ResponseEntity<Page<OrganizationResponse>> getAll(@ParameterObject Pageable pageable) {
 		log.info("Getting List of Organizations");
 		var domains = organizationService.getAll(pageable);
 		return ResponseEntity.ok(domains.map(organizationMapper::domainToResponse));
