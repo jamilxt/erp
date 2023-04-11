@@ -6,6 +6,8 @@ import com.brainstation23.erp.model.dto.CreateOrganizationRequest;
 import com.brainstation23.erp.model.dto.OrganizationResponse;
 import com.brainstation23.erp.model.dto.UpdateOrganizationRequest;
 import com.brainstation23.erp.service.OrganizationService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -17,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.util.UUID;
 
+@Tag(name = "Organization")
 @Slf4j
 @RequiredArgsConstructor
 @RestController
@@ -25,6 +28,7 @@ public class OrganizationRestController {
 	private final OrganizationService organizationService;
 	private final OrganizationMapper organizationMapper;
 
+	@Operation(summary = "Get All Organizations")
 	@GetMapping
 	public ResponseEntity<Page<OrganizationResponse>> getAll(Pageable pageable) {
 		log.info("Getting List of Organizations");
@@ -32,6 +36,7 @@ public class OrganizationRestController {
 		return ResponseEntity.ok(domains.map(organizationMapper::domainToResponse));
 	}
 
+	@Operation(summary = "Get Single Organization")
 	@GetMapping("{id}")
 	public ResponseEntity<OrganizationResponse> getOne(@PathVariable UUID id) {
 		log.info("Getting Details of Organization({})", id);
@@ -39,6 +44,7 @@ public class OrganizationRestController {
 		return ResponseEntity.ok(organizationMapper.domainToResponse(domain));
 	}
 
+	@Operation(summary = "Create Single Organization")
 	@PostMapping
 	public ResponseEntity<Void> createOne(@RequestBody @Valid CreateOrganizationRequest createRequest) {
 		log.info("Creating an Organization: {} ", createRequest);
@@ -47,6 +53,7 @@ public class OrganizationRestController {
 		return ResponseEntity.created(location).build();
 	}
 
+	@Operation(summary = "Update Single Organization")
 	@PutMapping("{id}")
 	public ResponseEntity<Void> updateOne(@PathVariable UUID id,
 			@RequestBody @Valid UpdateOrganizationRequest updateRequest) {
@@ -55,6 +62,7 @@ public class OrganizationRestController {
 		return ResponseEntity.noContent().build();
 	}
 
+	@Operation(summary = "Delete Single Organization")
 	@DeleteMapping("{id}")
 	public ResponseEntity<Void> deleteOne(@PathVariable UUID id) {
 		log.info("Deleting an Organization({}) ", id);

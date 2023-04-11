@@ -42,6 +42,9 @@ dependencies {
 	// util
 	implementation 'org.apache.commons:commons-lang3:3.12.0'
 
+	// api doc: swagger
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.6'
+
 	// configuration processor
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
