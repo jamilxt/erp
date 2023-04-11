@@ -7,6 +7,7 @@ import com.brainstation23.erp.model.dto.CreateOrganizationRequest;
 import com.brainstation23.erp.model.dto.UpdateOrganizationRequest;
 import com.brainstation23.erp.persistence.entity.OrganizationEntity;
 import com.brainstation23.erp.persistence.repository.OrganizationRepository;
+import com.brainstation23.erp.util.RandomUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -36,7 +37,7 @@ public class OrganizationService {
 
 	public UUID createOne(CreateOrganizationRequest createRequest) {
 		var entity = new OrganizationEntity();
-		entity.setName(createRequest.getName());
+		entity.setName(createRequest.getName()).setCode(this.generateOrganizationCode());
 		var createdEntity = organizationRepository.save(entity);
 		return createdEntity.getId();
 	}
@@ -50,5 +51,9 @@ public class OrganizationService {
 
 	public void deleteOne(UUID id) {
 		organizationRepository.deleteById(id);
+	}
+
+	private String generateOrganizationCode() {
+		return RandomUtils.generateAlphaNumeric(6).toUpperCase();
 	}
 }

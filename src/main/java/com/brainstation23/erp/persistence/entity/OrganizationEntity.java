@@ -23,4 +23,5 @@ public class OrganizationEntity {
 	@Type(type = "uuid-char")
 	private UUID id;
 	private String name;
+	private String code;
 }

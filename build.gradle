@@ -39,6 +39,9 @@ dependencies {
 	compileOnly "org.mapstruct:mapstruct:${mapStructVersion}"
 	annotationProcessor "org.mapstruct:mapstruct-processor:${mapStructVersion}"
 
+	// util
+	implementation 'org.apache.commons:commons-lang3:3.12.0'
+
 	// configuration processor
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 

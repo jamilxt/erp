@@ -13,4 +13,6 @@ public class OrganizationResponse {
 	private UUID id;
 
 	private String name;
+
+	private String code;
 }
