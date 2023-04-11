@@ -66,7 +66,7 @@ As an Employee user, I can
     ```
     Executing that command will generate a jar under "build/libs" folder which you can run using following command:
     ```
-    java -jar reseller-api-0.0.1-SNAPSHOT.jar
+    java -jar erp-0.0.1-SNAPSHOT.jar
     ```
     or, You can run the app directly by following command:
     ```
