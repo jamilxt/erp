@@ -40,7 +40,7 @@ As an Employee user, I can
    - [ ] /api/login (JWT)
    - [ ] /api/signup (public)
    - [ ] /api/users (secured, authorized to ADMIN only)
-   - [ ] /api/users (secured, authorized to ADMIN only)
+   - [ ] /api/roles (secured, authorized to ADMIN only)
    - [X] /api/organization (secured, authorized to ADMIN for CRUD, VIEW for EMPLOYEE)
 - [x] API Doc: Swagger
 - [x] Mapper: Mapstruct
