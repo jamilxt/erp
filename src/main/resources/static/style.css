@@ -1,0 +1,24 @@
+table tr {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+table td {
+    padding: 5px;
+}
+
+.btn {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #337ab7;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #23527c;
+    color: #fff;
+    text-decoration: none;
+}

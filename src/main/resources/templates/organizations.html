@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Organizations</title>
+</head>
+<body>
+
+<div class="OrgList">
+    <h1>Organizations List</h1>
+
+    <div th:if="${param.created}">
+        Organization Created Successfully.
+    </div>
+
+    <div th:if="${param.update}">
+        Organization Updated Successfully.
+    </div>
+    <div th:if="${param.deleted}">
+        Organization Deleted Successfully.
+    </div>
+
+    <a th:href="@{~/organizations/create}">Create Organization</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Code</th>
+        </tr>
+        </thead>
+        <tbody th:each="org : ${organizationList.content}">
+
+        <div th:unless="${param.edit}">
+            <tr>
+                <td th:text="${org.id}"></td>
+                <td th:text="${org.name}"></td>
+                <td th:text="${org.code}"></td>
+                <td> <a th:href="@{organizations/update/{orgId}(orgId=${org.id})}" class="btn btn-primary">Edit</a> </td>
+                <td> <a th:href="@{organizations/delete/{orgId}(orgId=${org.id})}" class="btn btn-primary">Delete</a> </td>
+            </tr>
+        </div>
+
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

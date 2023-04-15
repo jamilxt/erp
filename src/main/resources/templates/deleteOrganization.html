@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation</title>
+</head>
+<body>
+
+<div>
+  <form th:action="@{${#httpServletRequest.requestURL}}"  method="post">
+
+    <p>Are you sure?</p>
+    <p><input type="submit" value="Yes" placeholder="Enter Organization Name" />
+    <a th:href="@{/organizations}"> <input type="button" value="No"> </a>
+    </p>
+  </form>
+</div>
+
+</body>
+</html>

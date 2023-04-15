@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Organizations</title>
+</head>
+<body>
+
+<!--<div class="OrgList">-->
+<!--    <h1>Update Organizations</h1>-->
+<!--    <table>-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>Id</th>-->
+<!--            <th>Name</th>-->
+<!--            <th>Code</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--&lt;!&ndash;        th:object="${map}"&ndash;&gt;-->
+<!--        <tbody  th:each="org: ${organizationList.content}">-->
+
+<!--        <div th:if="${param.edit}">-->
+<!--            <tr>-->
+<!--&lt;!&ndash;                <form th:action="@{/organizations/update(updateId=${org.id})}" th:method="put">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <form th:action="@{/organizations(deleteId=${org.id})}" th:method="delete">&ndash;&gt;-->
+
+<!--                    <td th:text="${org.id}"></td>-->
+<!--                    <td th:text="${org.code}"> </td>                        &lt;!&ndash;                    th:value="*{updatedName}&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td> <input type="text" th:field="*{updateRequest.name}"> </td>&ndash;&gt;-->
+
+<!--                    <td>-->
+<!--                        <button type="submit">Update</button>-->
+<!--                    </td>-->
+
+<!--                    <td>-->
+<!--                        <button type="submit">Delete</button>-->
+<!--                    </td>-->
+<!--                    &lt;!&ndash;                    </form>&ndash;&gt;-->
+<!--&lt;!&ndash;                </form>&ndash;&gt;-->
+<!--            </tr>-->
+<!--        </div>-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--</div>-->
+
+<div>
+    <form th:action="@{${#httpServletRequest.requestURL}}" th:object="${updateRequest}" method="post">
+        <p>ID:</p>
+        <p th:text="${orgId}"></p>
+        <p>New name:
+            <input type="text" th:field="*{name}" />
+        </p>
+        <p><input type="submit" value="Submit" placeholder="Enter Organization Name" /></p>
+    </form>
+</div>
+
+</body>
+</html>

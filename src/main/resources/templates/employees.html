@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+</head>
+<body>
+<h1>Employee Registration Form</h1>
+<form th:action="@{/employees}" method="post" th:object="${employee}">
+    <p>First Name: <input type="text" th:field="*{firstName}" /></p>
+    <p>Last Name: <input type="text" th:field="*{lastName}" /></p>
+    <p>Email: <input type="email" th:field="*{email}" /></p>
+    <p>Department: <select th:field="*{department}">
+        <option value="">Select</option>
+        <option th:each="dept : ${departments}" th:value="${dept.id}" th:text="${dept.name}"></option>
+    </select></p>
+    <p><input type="submit" value="Register" /></p>
+</form>
+</body>
+</html>
