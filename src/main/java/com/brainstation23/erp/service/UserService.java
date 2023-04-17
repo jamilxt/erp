@@ -38,8 +38,10 @@ public class UserService {
     public UUID createOne(CreateUserRequest createUserRequest) {
         var entity = new UserEntity();
         entity.setId(UUID.randomUUID())
-                .setName(createUserRequest.getName())
+                .setFirstName(createUserRequest.getFirstName())
+                .setLastName(createUserRequest.getLastName())
                 .setEmail(createUserRequest.getEmail())
+                .setAccountBalance(createUserRequest.getAccountBalance())
                 .setRole(createUserRequest.getRole())
                 .setPassword(createUserRequest.getPassword());
         var createdEntity = userRepository.save(entity);
@@ -49,8 +51,10 @@ public class UserService {
     public void updateOne(UUID id, UpdateUserRequest updateUserRequest) {
         var entity = userRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(USER_NOT_FOUND));
-        entity.setName(updateUserRequest.getName());
+        entity.setFirstName(updateUserRequest.getFirstName());
+        entity.setLastName(updateUserRequest.getLastName());
         entity.setEmail(updateUserRequest.getEmail());
+        entity.setAccountBalance(updateUserRequest.getAccountBalance());
         entity.setRole(updateUserRequest.getRole());
         userRepository.save(entity);
     }

@@ -13,12 +13,20 @@ import javax.validation.constraints.NotNull;
 public class UpdateUserRequest {
 
     @NotNull
-    @Schema(description = "User Name", example = "Jon Jones")
-    private String name;
+    @Schema(description = "User First Name", example = "Jon")
+    private String firstName;
+
+    @NotNull
+    @Schema(description = "User Last Name", example = "Jones")
+    private String lastName;
 
     @NotNull
     @Schema(description = "User Email", example = "jon@gmail.com")
     private String email;
+
+    @NotNull
+    @Schema(description = "User Account Balance", example = "100.00")
+    private double accountBalance;
 
     @NotNull
     @Schema(description = "User Role", example = "ADMIN")

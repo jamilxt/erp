@@ -22,8 +22,10 @@ public class UserEntity {
     @Id
     @Type(type = "uuid-char")
     private UUID id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String email;
+    private double accountBalance;
     private String role;
     private String password;
 }
