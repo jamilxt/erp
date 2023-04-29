@@ -1,7 +1,7 @@
 # ERP - Java Trainees 2023
 
 Project for Trainees
-
+deployed on [Railway](https://erp-production-bf6c.up.railway.app/)
 ## Client Requirement
 As a Guest user, I can
 - view homepage
