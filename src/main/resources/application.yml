@@ -5,4 +5,4 @@ spring:
   application:
     name: erp
   profiles:
-    active: 'local'
+    active: 'develop'

@@ -33,6 +33,7 @@ dependencies {
 
 	// database
 	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.28'
 
 	// boilerplate code generation - lombok
 	compileOnly 'org.projectlombok:lombok'
