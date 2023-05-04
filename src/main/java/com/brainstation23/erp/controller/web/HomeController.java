@@ -10,6 +10,11 @@ public class HomeController {
 
 	@GetMapping
 	public String home() {
+		return "home";
+	}
+
+	@GetMapping("/dashboard")
+	public String dashboard() {
 		return "index";
 	}
 
