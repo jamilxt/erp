@@ -54,6 +54,9 @@ dependencies {
 
 	// test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// developer tools
+	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 }
 
 tasks.named('test') {
