@@ -1,7 +1,7 @@
 package com.brainstation23.erp.service;
 
-import com.brainstation23.erp.model.dto.CreateOrganizationRequest;
-import com.brainstation23.erp.model.dto.UpdateOrganizationRequest;
+import com.brainstation23.erp.model.dto.request.CreateOrganizationRequest;
+import com.brainstation23.erp.model.dto.request.UpdateOrganizationRequest;
 import com.brainstation23.erp.persistence.entity.OrganizationEntity;
 import com.brainstation23.erp.persistence.repository.OrganizationRepository;
 import org.junit.jupiter.api.Assertions;

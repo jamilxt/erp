@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/stylesheets::head">
+
+<body>
+
+<!-- ======= Header ======= -->
+<header th:replace="fragments/header::header"></header>
+
+<!-- ======= Sidebar ======= -->
+<aside th:replace="fragments/sidebar::sidebarMenu"></aside>
+
+<main class="main" id="main">
+
+    <div class="pagetitle">
+        <h1>Roles <a class="btn btn-outline-success" th:href="@{/users/create}"> <i
+                class="fas bi-plus"></i></a></h1>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">User List</h5>
+
+                        <!-- Table with stripped rows -->
+                        <table class="table datatable">
+                            <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Roles</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="user : ${users}">
+                                <td th:text="${user.firstName}"></td>
+                                <td th:text="${user.lastName}"></td>
+                                <td th:text="${user.email}"></td>
+                                <td>
+                                    <th:block th:each="role : ${user.roles}">
+                                        <span th:text="${role.name}"></span>
+                                    </th:block>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-success" th:href="@{/users/{id}/ (id = ${user.id})}"><i
+                                            class="fas bi-eye"></i></a>
+                                    <a class="btn btn-sm btn-primary"
+                                       th:href="@{/users/{id}/update (id = ${user.id}) }"><i
+                                            class="fas bi-pen"></i></a>
+                                    <a class="btn btn-sm btn-danger" href="#"
+                                       th:onclick="deleteItem([[${user.id}]], '/users/', 'User')"><i
+                                            class="fas bi-trash"></i></a>
+                                </td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer class="main-footer" th:replace="fragments/footer::footer"></footer>
+
+<a class="back-to-top d-flex align-items-center justify-content-center" href="#"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<div th:replace="fragments/scripts :: scripts"></div>
+
+</body>
+
+</html>
+

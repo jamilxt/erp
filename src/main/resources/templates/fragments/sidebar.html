@@ -27,6 +27,21 @@
         </li><!-- End Profile Page Nav -->
 
         <li class="nav-item">
+            <a class="nav-link collapsed" th:href="@{/users}">
+                <i class="bi bi-person"></i>
+                <span>User</span>
+            </a>
+        </li><!-- End User Page Nav -->
+
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" th:href="@{/roles}">
+                <i class="bi bi-person"></i>
+                <span>Role</span>
+            </a>
+        </li><!-- End Role Page Nav -->
+
+        <li class="nav-item">
             <a class="nav-link collapsed" href="template-pages/pages-faq.html">
                 <i class="bi bi-question-circle"></i>
                 <span>F.A.Q</span>
@@ -48,7 +63,7 @@
         </li><!-- End Register Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="template-pages/pages-login.html">
+            <a class="nav-link collapsed" th:href="@{/logout}">
                 <i class="bi bi-box-arrow-in-right"></i>
                 <span>Login</span>
             </a>

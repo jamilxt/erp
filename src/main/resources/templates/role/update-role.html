@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/stylesheets::head">
+
+<body>
+
+<!-- ======= Header ======= -->
+<header th:replace="fragments/header::header"></header>
+
+<!-- ======= Sidebar ======= -->
+<aside th:replace="fragments/sidebar::sidebarMenu"></aside>
+
+<main class="main " id="main">
+
+    <div class="pagetitle">
+        <h1>Role</h1>
+    </div>
+
+    <section class="section ">
+        <div class="row">
+            <div>
+                <div class="card ">
+                    <div class="card-body">
+                        <h5 class="card-title align-center">Elements of Role</h5>
+                        <form method="POST" th:action="@{'/roles/update/' + ${role.id}}" th:object="${role}">
+
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="name">Role Name</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control"
+                                           id="name"
+                                           name="name"
+                                           placeholder="Enter Role Name"
+                                           required
+                                           th:classappend="${#fields.hasErrors('name') ? 'is-invalid' : ''}"
+                                           th:field="*{name}"
+                                           th:value="${role.name}"
+                                           type="text"
+                                    >
+                                    <div class="invalid-feedback" style="font-size: 15px"
+                                         th:each="error : ${#fields.errors('name')}" th:text="${error}">
+                                    </div>
+                                </div>
+                            </diV>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="description">Role Description</label>
+                                <div class="col-sm-10">
+                                    <textarea
+                                            class="form-control"
+                                            id="description"
+                                            placeholder="Enter Role Description"
+                                            required
+                                            style="height: 100px"
+                                            th:classappend="${#fields.hasErrors('description') ? 'is-invalid' : ''}"
+                                            th:field="*{description}"
+                                            th:text="${role.description}"
+                                    ></textarea>
+                                    <div class="invalid-feedback" style="font-size: 15px"
+                                         th:each="error : ${#fields.errors('description')}" th:text="${error}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col text-center">
+                                    <button class="btn btn-primary" type="submit">Save</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer class="main-footer" th:replace="fragments/footer::footer"></footer>
+
+<a class="back-to-top d-flex align-items-center justify-content-center" href="#"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<div th:replace="fragments/scripts :: scripts"></div>
+
+</body>
+
+</html>

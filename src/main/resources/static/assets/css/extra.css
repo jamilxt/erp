@@ -1,0 +1,5 @@
+.title,
+.value {
+    display: inline-block;
+    margin-right: 10px; /* Adjust the margin as needed */
+}

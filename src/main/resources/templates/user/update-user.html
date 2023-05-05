@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/stylesheets::head">
+
+<body>
+
+<!-- ======= Header ======= -->
+<header th:replace="fragments/header::header"></header>
+
+<!-- ======= Sidebar ======= -->
+<aside th:replace="fragments/sidebar::sidebarMenu"></aside>
+
+<main class="main " id="main">
+
+    <div class="pagetitle">
+        <h1>User</h1>
+    </div>
+
+    <section class="section ">
+        <div class="row">
+            <div>
+                <div class="card ">
+                    <div class="card-body">
+                        <!-- FLASH RESPONSE MESSAGE START -->
+                        <div th:if="${responseMessage}" class="ml-auto mr-auto">
+                            <div class="alert text-center" th:classappend="${responseMessage.type}" role="alert" th:text="${responseMessage.message}">
+                            </div>
+                        </div>
+                        <h5 class="card-title align-center">Elements of User</h5>
+                        <form method="POST" th:action="@{'/users/update/' + ${user.id}}" th:object="${user}">
+
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="firstName">First Name</label>
+                                <div class="col-sm-10">
+                                    <input
+                                            class="form-control"
+                                            id="firstName"
+                                            name="firstName"
+                                            placeholder="Enter First Name"
+                                            th:classappend="${#fields.hasErrors('firstName') ? 'is-invalid' : ''}"
+                                            th:field="*{firstName}"
+                                            th:value="${user.firstName}"
+                                            type="text"
+                                    >
+                                    <div class="invalid-feedback" style="font-size: 15px"
+                                         th:each="error : ${#fields.errors('firstName')}" th:text="${error}"></div>
+                                </div>
+                            </diV>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="lastName">Last Name</label>
+                                <div class="col-sm-10">
+                                    <input
+                                            class="form-control"
+                                            id="lastName"
+                                            name="lastName"
+                                            placeholder="Enter Last Name"
+                                            th:classappend="${#fields.hasErrors('lastName') ? 'is-invalid' : ''}"
+                                            th:field="*{lastName}"
+                                            th:value="${user.lastName}"
+                                            type="text"
+                                    >
+                                    <div class="invalid-feedback" style="font-size: 15px"
+                                         th:each="error : ${#fields.errors('lastName')}" th:text="${error}"></div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="email">Email</label>
+                                <div class="col-sm-10">
+                                    <input
+                                            class="form-control"
+                                            id="email"
+                                            name="email"
+                                            placeholder="Enter Email"
+                                            th:classappend="${#fields.hasErrors('email') ? 'is-invalid' : ''}"
+                                            th:field="*{email}"
+                                            th:value="${user.email}"
+                                            type="email"
+                                    >
+                                    <div class="invalid-feedback" style="font-size: 15px"
+                                         th:each="error : ${#fields.errors('email')}" th:text="${error}"></div>
+                                </div>
+                            </div>
+
+                            <fieldset class="row mb-3">
+                                <legend class="col-form-label col-sm-2 pt-0">Role</legend>
+                                <div class="col-sm-10">
+                                    <th:block th:each="role : ${roles}">
+                                        <div class="form-check">
+                                            <input checked class="form-check-input" id="gridRadios1" name="gridRadios"
+                                                   th:field="*{roles}"
+                                                   th:value="${role.id}"
+                                                   type="radio" value="option1">
+                                            <label class="form-check-label" for="gridRadios1" th:text="${role.name}">
+                                                First radio </label>
+                                        </div>
+                                    </th:block>
+                                </div>
+                            </fieldset>
+
+                            <div class="row">
+                                <div class="col text-center">
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer class="main-footer" th:replace="fragments/footer::footer"></footer>
+
+<a class="back-to-top d-flex align-items-center justify-content-center" href="#"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<div th:replace="fragments/scripts :: scripts"></div>
+
+</body>
+
+</html>

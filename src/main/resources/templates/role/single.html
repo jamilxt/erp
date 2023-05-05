@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/stylesheets::head">
+
+<body>
+
+<!-- ======= Header ======= -->
+<header th:replace="fragments/header::header"></header>
+
+<!-- ======= Sidebar ======= -->
+<aside th:replace="fragments/sidebar::sidebarMenu"></aside>
+
+<main class="main" id="main">
+
+    <div class="pagetitle">
+        <h1>Role Details</h1>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Role Details</h5><hr>
+
+                        <!-- Table with stripped rows -->
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th scope="row">Role</th>
+                                <td th:text="${role.name}"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Description</th>
+                                <td th:text="${role.description}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer class="main-footer" th:replace="fragments/footer::footer"></footer>
+
+<a class="back-to-top d-flex align-items-center justify-content-center" href="#"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<div th:replace="fragments/scripts :: scripts"></div>
+
+</body>
+
+</html>
+
