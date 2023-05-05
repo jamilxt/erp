@@ -33,7 +33,7 @@ public class RoleController {
         var modelAndView = new ModelAndView("role/list");
         Page<Role> roles = roleService.getRoles(PageRequest.of(page, DEFAULT_PAGE_SIZE));
         modelAndView.addObject("pageTitle", "Role List");
-//        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
+        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
         modelAndView.addObject("roles", roles);
         modelAndView.addObject("pagesForPagination", roles);
         modelAndView.addObject("url", "/roles");
@@ -46,7 +46,7 @@ public class RoleController {
         var modelAndView = new ModelAndView("role/single");
         Role role = roleService.getRole(id);
         modelAndView.addObject("pageTitle", "Role Details");
-//        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
+        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
         modelAndView.addObject("role", role);
         return modelAndView;
     }
@@ -56,7 +56,7 @@ public class RoleController {
         var modelAndView = new ModelAndView("role/new-role");
         var createRoleRequest = new CreateRoleRequest();
         modelAndView.addObject("pageTitle", "Add Role");
-//        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
+        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
         modelAndView.addObject("role", createRoleRequest);
         return modelAndView;
     }
@@ -66,7 +66,7 @@ public class RoleController {
         try {
             if (bindingResult.hasErrors()) {
                 model.addAttribute("pageTitle", "Add Role");
-//                model.addAttribute("loggedInUser", userService.getLoggedInUser(principal));
+                model.addAttribute("loggedInUser", userService.getLoggedInUser(principal));
                 model.addAttribute("role", request);
                 return "role/new-role";
             }
@@ -83,7 +83,7 @@ public class RoleController {
         var modelAndView = new ModelAndView("role/update-role");
         var role = roleService.getRole(id);
         modelAndView.addObject("pageTitle", "Update Role");
-//        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
+        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
         modelAndView.addObject("role", role);
         return modelAndView;
     }
@@ -93,7 +93,7 @@ public class RoleController {
         try {
             if (bindingResult.hasErrors()) {
                 model.addAttribute("pageTitle", "Update Role");
-//                model.addAttribute("loggedInUser", userService.getLoggedInUser(principal));
+                model.addAttribute("loggedInUser", userService.getLoggedInUser(principal));
                 model.addAttribute("role", request);
                 return "role/update-role";
             }

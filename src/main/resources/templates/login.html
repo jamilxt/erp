@@ -13,9 +13,9 @@
                     <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
                         <div class="d-flex justify-content-center py-4">
-                            <a href="../index.html" class="logo d-flex align-items-center w-auto">
+                            <a th:href="@{/}" class="logo d-flex align-items-center w-auto">
                                 <img src="/assets/img/logo.png" alt="">
-                                <span class="d-none d-lg-block">ERP Dashboard</span>
+                                <span class="d-none d-lg-block">ERP</span>
                             </a>
                         </div><!-- End Logo -->
 
@@ -77,64 +77,4 @@
 </body>
 
 </html>
-
-
-
-
-
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="utf-8">-->
-<!--    <meta content="width=device-width, initial-scale=1" name="viewport">-->
-<!--    <title>Log in</title>-->
-<!--</head>-->
-<!--<body class="hold-transition login-page">-->
-<!--<div class="login-box">-->
-<!--    <div class="card card-outline card-primary">-->
-<!--        <div class="card-header text-center">-->
-<!--            <a class="h1" href="#">Login<b> ERP </b>Profile</a>-->
-<!--        </div>-->
-<!--        <div class="card-body">-->
-<!--            <div style="justify-content: center; align-items: center; text-align: center; margin-bottom: 20px">-->
-<!--                <img style="width: 80px"-->
-<!--                     th:src="@{/img/lock.png}">-->
-<!--            </div>-->
-<!--            <form method="post" th:action="@{/login}">-->
-<!--                <div class="input-group mb-3">-->
-<!--                    <input class="form-control" name="email" placeholder="Email" type="email">-->
-<!--                    <div class="input-group-append">-->
-<!--                        <div class="input-group-text">-->
-<!--                            <span class="fas fa-envelope"></span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="input-group mb-3">-->
-<!--                    <input class="form-control" name="password" placeholder="Password" type="password">-->
-<!--                    <div class="input-group-append">-->
-<!--                        <div class="input-group-text">-->
-<!--                            <span class="fas fa-lock"></span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                    <div class="col-8">-->
-<!--                        <div class="icheck-primary">-->
-<!--                            <input id="remember" name="remember-me" type="checkbox">-->
-<!--                            <label for="remember">-->
-<!--                                Remember Me-->
-<!--                            </label>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                    <button class="btn btn-primary btn-block" type="submit" value="Login"><b>Sign In</b></button>-->
-<!--                </div>-->
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
 

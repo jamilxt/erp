@@ -36,7 +36,7 @@ public class UserController {
         var modelAndView = new ModelAndView("user/list");
         Page<User> users = userService.getUsers(PageRequest.of(page, DEFAULT_PAGE_SIZE));
         modelAndView.addObject("pageTitle", "View Users");
-//        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
+        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
         modelAndView.addObject("users", users);
         modelAndView.addObject("pagesForPagination", users);
         modelAndView.addObject("url", "/users");
@@ -48,7 +48,7 @@ public class UserController {
         var modelAndView = new ModelAndView("user/single");
         User user = userService.getUserById(id);
         modelAndView.addObject("pageTitle", "User Profile");
-//        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
+        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
         modelAndView.addObject("user", user);
         return modelAndView;
     }
@@ -58,7 +58,7 @@ public class UserController {
         var modelAndView = new ModelAndView("user/new-user");
         var createUserRequest = new CreateUserRequest();
         modelAndView.addObject("pageTitle", "Add User");
-//        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
+        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
         modelAndView.addObject("user", createUserRequest);
         modelAndView.addObject("roles", roleService.getRoles(Pageable.unpaged()));
         return modelAndView;
@@ -71,7 +71,7 @@ public class UserController {
         try {
             if (bindingResult.hasErrors()) {
                 model.addAttribute("pageTitle", "Add User");
-//                model.addAttribute("loggedInUser", userService.getLoggedInUser(principal));
+                model.addAttribute("loggedInUser", userService.getLoggedInUser(principal));
                 model.addAttribute("user", request);
                 model.addAttribute("roles", roleService.getRoles(Pageable.unpaged()));
                 return "user/new-user";
@@ -95,7 +95,7 @@ public class UserController {
         var modelAndView = new ModelAndView("user/update-user");
         User user = userService.getUserById(id);
         modelAndView.addObject("pageTitle", "Update User");
-//        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
+        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
         modelAndView.addObject("user", user);
         modelAndView.addObject("roles", roleService.getRoles(Pageable.unpaged()));
         return modelAndView;
@@ -106,7 +106,7 @@ public class UserController {
         try {
             if (bindingResult.hasFieldErrors("id") || bindingResult.hasFieldErrors("firstName") || bindingResult.hasFieldErrors("lastName") || bindingResult.hasFieldErrors("email")) {
                 model.addAttribute("pageTitle", "Update User");
-//                model.addAttribute("loggedInUser", userService.getLoggedInUser(principal));
+                model.addAttribute("loggedInUser", userService.getLoggedInUser(principal));
                 model.addAttribute("user", request);
                 model.addAttribute("roles", roleService.getRoles(Pageable.unpaged()));
                 return "user/update-user";
