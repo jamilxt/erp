@@ -20,7 +20,7 @@ import static com.brainstation23.erp.constant.AppConstant.DEFAULT_TOKEN_VALIDITY
 @RequiredArgsConstructor
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // TODO: use SecurityFilterChain
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsServiceImpl userDetailsService;
 
@@ -42,12 +42,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // TODO: u
         auth.userDetailsService(userDetailsService);
     }
 
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        String[] staticResources = {"/static/assets/css/**", "/static/assets/images/**", "/static/assets/js/**"};
+        String[] staticResources = {"/static/assets/css/**", "/static/assets/images/**", "/static/assets/js/**", "/static/assets/img/**"};
 
         http.authorizeRequests()
                 .antMatchers(staticResources).permitAll()
@@ -75,15 +73,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // TODO: u
                 .tokenValiditySeconds(DEFAULT_TOKEN_VALIDITY_SECONDS);
 
         http.addFilterAfter(new LoggedInUserFilter(), UsernamePasswordAuthenticationFilter.class);
-
         http.csrf().disable();
 
         //http.authorizeRequests().antMatchers("/**").permitAll().anyRequest().authenticated().and().csrf().disable();
     }
 
-
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/assets/css/**", "/assets/images/**", "/assets/js/**", "/assets/img/**", "/assets/vendor/**");
+        web.ignoring().antMatchers("/assets/css/**", "/assets/images/**", "/assets/js/**", "/assets/img/**", "/assets/vendor/**", "/assets/img/**");
     }
 }

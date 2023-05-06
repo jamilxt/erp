@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/stylesheets::head">
-
+    <title>Login</title></head>
 <body>
 
 <main>
@@ -13,47 +13,49 @@
                     <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
                         <div class="d-flex justify-content-center py-4">
-                            <a th:href="@{/}" class="logo d-flex align-items-center w-auto">
-                                <img src="/assets/img/logo.png" alt="">
-                                <span class="d-none d-lg-block">ERP</span>
+                            <a class="logo d-flex align-items-center w-auto" th:href="@{/}">
+                                <img alt="" src="/assets/img/logo.png">
+                                <span class="d-none d-lg-block">ERP Login</span>
                             </a>
                         </div><!-- End Logo -->
 
                         <div class="card mb-3">
-
                             <div class="card-body">
-
                                 <div class="pt-4 pb-2">
-                                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
+                                    <h5 class="card-title text-center pb-0 fs-4">Account Information</h5>
                                 </div>
 
-                                <form method="post" th:action="@{/login}" class="row g-3 needs-validation" novalidate>
+                                <form class="row g-3 needs-validation" method="post" novalidate th:action="@{/login}">
 
                                     <div th:if="${param.error}">
-                                        <p class="text-danger text-center">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+                                        <p class="text-danger text-center">
+                                            [[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
                                     </div>
                                     <div th:if="${param.logout}">
                                         <p class="text-warning">You have been logged out</p>
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="yourUsername" class="form-label">Username</label>
+                                        <label class="form-label" for="yourUsername">Username</label>
                                         <div class="input-group has-validation">
                                             <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                            <input type="text" name="email" class="form-control" id="yourUsername" required>
+                                            <input class="form-control" id="yourUsername" name="email" required
+                                                   type="text">
                                             <div class="invalid-feedback">Please enter your username.</div>
                                         </div>
                                     </div>
 
                                     <div class="col-12">
-                                        <label for="yourPassword" class="form-label">Password</label>
-                                        <input type="password" name="password" class="form-control" id="yourPassword" required>
+                                        <label class="form-label" for="yourPassword">Password</label>
+                                        <input class="form-control" id="yourPassword" name="password" required
+                                               type="password">
                                         <div class="invalid-feedback">Please enter your password!</div>
                                     </div>
 
                                     <div class="col-12">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="remember-me" value="true" id="rememberMe">
+                                            <input class="form-check-input" id="rememberMe" name="remember-me"
+                                                   type="checkbox" value="true">
                                             <label class="form-check-label" for="rememberMe">Remember me</label>
                                         </div>
                                     </div>
@@ -61,27 +63,23 @@
                                         <button class="btn btn-primary w-100" type="submit">Login</button>
                                     </div>
                                     <div class="col-12">
-                                        <p class="small mb-0">Don't have account? <a th:href="@{users/create}">Create an account</a></p>
+                                        <p class="small mb-0">Don't have account? <a th:href="@{/register/create}">Create
+                                            an account</a></p>
                                     </div>
-                                </form>
 
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
-
     </div>
 </main><!-- End #main -->
 
 <a class="back-to-top d-flex align-items-center justify-content-center" href="#"><i
         class="bi bi-arrow-up-short"></i></a>
-
 <div th:replace="fragments/scripts :: scripts"></div>
-
 </body>
-
 </html>
 

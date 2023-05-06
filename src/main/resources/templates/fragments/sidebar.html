@@ -20,7 +20,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="template-pages/users-profile.html">
+            <a class="nav-link collapsed" th:href="@{/profile}">
                 <i class="bi bi-person"></i>
                 <span>Profile</span>
             </a>
@@ -28,7 +28,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" th:href="@{/users}">
-                <i class="bi bi-person"></i>
+                <i class="bi bi-people"></i>
                 <span>User</span>
             </a>
         </li><!-- End User Page Nav -->
@@ -36,7 +36,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" th:href="@{/roles}">
-                <i class="bi bi-person"></i>
+                <i class="bi bi-list-check"></i>
                 <span>Role</span>
             </a>
         </li><!-- End Role Page Nav -->
@@ -54,13 +54,6 @@
                 <span>Contact</span>
             </a>
         </li><!-- End Contact Page Nav -->
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" th:href="@{/register/create}">
-                <i class="bi bi-card-list"></i>
-                <span>Register</span>
-            </a>
-        </li><!-- End Register Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" th:href="@{/logout}">

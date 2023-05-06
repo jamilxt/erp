@@ -18,25 +18,21 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.security.Principal;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping(value = "/register")
-public class UserRegisterController {
+@RequestMapping(value = "/profile")
+public class ProfileController {
     private final UserService userService;
     private final RoleService roleService;
 
-    @GetMapping("/create")
+    @GetMapping
     public ModelAndView viewCreateUserPage() {
-        var modelAndView = new ModelAndView("register/new-user");
-        var createUserRequest = new CreateUserRequest();
-        modelAndView.addObject("pageTitle", "Register");
-        modelAndView.addObject("user", createUserRequest);
-        modelAndView.addObject("roles", roleService.getRoles(Pageable.unpaged()));
+        var modelAndView = new ModelAndView("profile/view");
+        modelAndView.addObject("pageTitle", "Profile");
         return modelAndView;
     }
 

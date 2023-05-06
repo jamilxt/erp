@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/stylesheets::head">
-
+</head>
 <body>
 
 <main>
@@ -13,27 +13,24 @@
                     <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
                         <div class="d-flex justify-content-center py-4">
-                            <a class="logo d-flex align-items-center w-auto" href="../index.html">
+                            <a class="logo d-flex align-items-center w-auto" th:href="@{/}">
                                 <img alt="" src="/assets/img/logo.png">
                                 <span class="d-none d-lg-block">ERP Register</span>
                             </a>
                         </div><!-- End Logo -->
 
                         <div class="card mb-3">
-
                             <div class="card-body">
-
                                 <div class="ml-auto mr-auto" th:if="${responseMessage}">
                                     <div class="alert text-center" role="alert" th:classappend="${responseMessage.type}"
                                          th:text="${responseMessage.message}">
                                     </div>
                                 </div>
-
                                 <div class="pt-4 pb-2">
                                     <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
                                 </div>
-
-                                <form class="row g-3 needs-validation" method="POST" novalidate th:action="@{/register/save}"
+                                <form class="row g-3 needs-validation" method="POST" novalidate
+                                      th:action="@{/register/save}"
                                       th:object="${user}">
 
                                     <div class="col-12">
@@ -116,16 +113,12 @@
                                     </div>
 
                                 </form>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-
         </section>
-
     </div>
 </main><!-- End #main -->
 
