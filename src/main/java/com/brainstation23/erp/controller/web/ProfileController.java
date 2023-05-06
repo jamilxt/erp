@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -30,9 +31,10 @@ public class ProfileController {
     private final RoleService roleService;
 
     @GetMapping
-    public ModelAndView viewCreateUserPage() {
+    public ModelAndView viewCreateUserPage(Principal principal) {
         var modelAndView = new ModelAndView("profile/view");
         modelAndView.addObject("pageTitle", "Profile");
+        modelAndView.addObject("loggedInUser", userService.getLoggedInUser(principal));
         return modelAndView;
     }
 
