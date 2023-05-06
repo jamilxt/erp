@@ -6,6 +6,7 @@ import com.brainstation23.erp.mapper.UserMapper;
 import com.brainstation23.erp.model.domain.User;
 import com.brainstation23.erp.model.dto.request.CreateUserRequest;
 import com.brainstation23.erp.model.dto.request.UpdateUserRequest;
+import com.brainstation23.erp.model.dto.request.UpdateUserRequestFromProfile;
 import com.brainstation23.erp.persistence.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,6 +73,13 @@ public class UserService {
 		userEntity.setLastName(request.getLastName());
 		userEntity.setEmail(request.getEmail());
 		userEntity.setRoles(request.getRoles());
+		userRepository.save(userEntity);
+	}
+
+	public void updateUserName(UpdateUserRequestFromProfile request, UUID id) {
+		var userEntity = userRepository.findById(id).orElseThrow(()-> new NotFoundException(USER_NOT_FOUND));
+		userEntity.setFirstName(request.getFirstName());
+		userEntity.setLastName(request.getLastName());
 		userRepository.save(userEntity);
 	}
 

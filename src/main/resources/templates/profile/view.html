@@ -18,7 +18,7 @@
             <ol class="breadcrumb">
             </ol>
         </nav>
-    </div><!-- End Page Title -->
+    </div>
 
     <section class="section profile">
         <div class="row">
@@ -28,7 +28,8 @@
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                         <img alt="Profile" class="rounded-circle" src="/assets/img/img.png">
-                        <h2 th:text="${loggedInUser != null ? loggedInUser.firstName+' '+loggedInUser.lastName : 'Guest'}">Kevin Anderson</h2>
+                        <h2 th:text="${loggedInUser != null ? loggedInUser.firstName+' '+loggedInUser.lastName : 'Guest'}">
+                            Kevin Anderson</h2>
                         <div class="social-links mt-2">
                             <a class="facebook" href="#"><i class="bi bi-facebook"></i></a>
                             <a class="instagram" href="#"><i class="bi bi-instagram"></i></a>
@@ -40,7 +41,6 @@
             </div>
 
             <div class="col-xl-8">
-
                 <div class="card">
                     <div class="card-body pt-3">
                         <!-- Bordered Tabs -->
@@ -75,17 +75,25 @@
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label ">First Name</div>
-                                    <div class="col-lg-9 col-md-8" th:text="${loggedInUser != null ? loggedInUser.firstName : 'Guest'}">Kevin Anderson</div>
+                                    <div class="col-lg-9 col-md-8"
+                                         th:text="${loggedInUser != null ? loggedInUser.firstName : 'Guest'}">Kevin
+                                        Anderson
+                                    </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label ">Last Name</div>
-                                    <div class="col-lg-9 col-md-8" th:text="${loggedInUser != null ? loggedInUser.lastName : 'Guest'}">Kevin Anderson</div>
+                                    <div class="col-lg-9 col-md-8"
+                                         th:text="${loggedInUser != null ? loggedInUser.lastName : 'Guest'}">Kevin
+                                        Anderson
+                                    </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Email</div>
-                                    <div class="col-lg-9 col-md-8" th:text="${loggedInUser != null ? loggedInUser.email : 'Guest'}">Web Designer</div>
+                                    <div class="col-lg-9 col-md-8"
+                                         th:text="${loggedInUser != null ? loggedInUser.email : 'Guest'}">Web Designer
+                                    </div>
                                 </div>
 
                             </div>
@@ -93,118 +101,45 @@
                             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                 <!-- Profile Edit Form -->
-                                <form>
+                                <form method="POST" th:action="@{'/profile/update/' + ${user.id}}" th:object="${user}">
+
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-lg-3 col-form-label" for="profileImage">Profile
-                                            Image</label>
+                                        <label class="col-md-4 col-lg-3 col-form-label" for="firstName">First
+                                            Name</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <img alt="Profile" src="assets/img/profile-img.jpg">
-                                            <div class="pt-2">
-                                                <a class="btn btn-primary btn-sm" href="#"
-                                                   title="Upload new profile image"><i class="bi bi-upload"></i></a>
-                                                <a class="btn btn-danger btn-sm" href="#"
-                                                   title="Remove my profile image"><i class="bi bi-trash"></i></a>
-                                            </div>
+                                            <input
+                                                    class="form-control"
+                                                    id="firstName"
+                                                    name="firstName"
+                                                    placeholder="Enter First Name"
+                                                    th:classappend="${#fields.hasErrors('firstName') ? 'is-invalid' : ''}"
+                                                    th:field="*{firstName}"
+                                                    th:value="${user.firstName}"
+                                                    type="text"
+                                            >
+                                            <div class="invalid-feedback" style="font-size: 15px"
+                                                 th:each="error : ${#fields.errors('firstName')}"
+                                                 th:text="${error}"></div>
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label class="col-md-4 col-lg-3 col-form-label" for="fullName">Full Name</label>
+                                        <label class="col-md-4 col-lg-3 col-form-label" for="firstName">Full
+                                            Name</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input class="form-control" id="fullName" name="fullName" type="text"
-                                                   value="Kevin Anderson">
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <label class="col-md-4 col-lg-3 col-form-label" for="about">About</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <textarea class="form-control" id="about" name="about"
-                                                      style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <label class="col-md-4 col-lg-3 col-form-label" for="company">Company</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input class="form-control" id="company" name="company" type="text"
-                                                   value="Lueilwitz, Wisoky and Leuschke">
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <label class="col-md-4 col-lg-3 col-form-label" for="Job">Job</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input class="form-control" id="Job" name="job" type="text"
-                                                   value="Web Designer">
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <label class="col-md-4 col-lg-3 col-form-label" for="Country">Country</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input class="form-control" id="Country" name="country" type="text"
-                                                   value="USA">
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <label class="col-md-4 col-lg-3 col-form-label" for="Address">Address</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input class="form-control" id="Address" name="address" type="text"
-                                                   value="A108 Adam Street, New York, NY 535022">
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <label class="col-md-4 col-lg-3 col-form-label" for="Phone">Phone</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input class="form-control" id="Phone" name="phone" type="text"
-                                                   value="(436) 486-3538 x29071">
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <label class="col-md-4 col-lg-3 col-form-label" for="Email">Email</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input class="form-control" id="Email" name="email" type="email"
-                                                   value="k.anderson@example.com">
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <label class="col-md-4 col-lg-3 col-form-label" for="Twitter">Twitter
-                                            Profile</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input class="form-control" id="Twitter" name="twitter" type="text"
-                                                   value="https://twitter.com/#">
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <label class="col-md-4 col-lg-3 col-form-label" for="Facebook">Facebook
-                                            Profile</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input class="form-control" id="Facebook" name="facebook" type="text"
-                                                   value="https://facebook.com/#">
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <label class="col-md-4 col-lg-3 col-form-label" for="Instagram">Instagram
-                                            Profile</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input class="form-control" id="Instagram" name="instagram" type="text"
-                                                   value="https://instagram.com/#">
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-3">
-                                        <label class="col-md-4 col-lg-3 col-form-label" for="Linkedin">Linkedin
-                                            Profile</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <input class="form-control" id="Linkedin" name="linkedin" type="text"
-                                                   value="https://linkedin.com/#">
+                                            <input
+                                                    class="form-control"
+                                                    id="lastName"
+                                                    name="lastName"
+                                                    placeholder="Enter Last Name"
+                                                    th:classappend="${#fields.hasErrors('lastName') ? 'is-invalid' : ''}"
+                                                    th:field="*{lastName}"
+                                                    th:value="${user.lastName}"
+                                                    type="text"
+                                            >
+                                            <div class="invalid-feedback" style="font-size: 15px"
+                                                 th:each="error : ${#fields.errors('lastName')}"
+                                                 th:text="${error}"></div>
                                         </div>
                                     </div>
 
