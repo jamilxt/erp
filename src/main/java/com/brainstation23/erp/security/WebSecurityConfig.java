@@ -51,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // TODO: u
 
         http.authorizeRequests()
                 .antMatchers(staticResources).permitAll()
-                .antMatchers("/forgot-password", "/change-password", "/about/**", "/", "/login").permitAll()
+                .antMatchers("/forgot-password", "/change-password", "/about/**", "/", "/login", "/register/**").permitAll()
                 .anyRequest().authenticated()
 
                 .and()

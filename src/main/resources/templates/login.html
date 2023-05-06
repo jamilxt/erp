@@ -29,6 +29,13 @@
 
                                 <form method="post" th:action="@{/login}" class="row g-3 needs-validation" novalidate>
 
+                                    <div th:if="${param.error}">
+                                        <p class="text-danger text-center">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+                                    </div>
+                                    <div th:if="${param.logout}">
+                                        <p class="text-warning">You have been logged out</p>
+                                    </div>
+
                                     <div class="col-12">
                                         <label for="yourUsername" class="form-label">Username</label>
                                         <div class="input-group has-validation">

@@ -5,6 +5,7 @@ import com.brainstation23.erp.mapper.RoleMapper;
 import com.brainstation23.erp.model.domain.Role;
 import com.brainstation23.erp.model.dto.request.CreateRoleRequest;
 import com.brainstation23.erp.model.dto.request.UpdateRoleRequest;
+import com.brainstation23.erp.persistence.entity.RoleEntity;
 import com.brainstation23.erp.persistence.entity.UserEntity;
 import com.brainstation23.erp.persistence.repository.RoleRepository;
 import com.brainstation23.erp.persistence.repository.UserRepository;
@@ -13,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -26,6 +28,10 @@ public class RoleService {
 
     public Page<Role> getRoles(Pageable pageable) {
         return roleRepository.findAll(pageable).map(roleMapper::toDomain);
+    }
+
+    public List<RoleEntity> getRolesS() {
+        return roleRepository.findAll();
     }
 
     public Role getRole(UUID id) {

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/stylesheets::head">
+
+<body>
+
+<main>
+    <div class="container">
+
+        <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+                        <div class="d-flex justify-content-center py-4">
+                            <a class="logo d-flex align-items-center w-auto" href="../index.html">
+                                <img alt="" src="/assets/img/logo.png">
+                                <span class="d-none d-lg-block">ERP Register</span>
+                            </a>
+                        </div><!-- End Logo -->
+
+                        <div class="card mb-3">
+
+                            <div class="card-body">
+
+                                <div class="ml-auto mr-auto" th:if="${responseMessage}">
+                                    <div class="alert text-center" role="alert" th:classappend="${responseMessage.type}"
+                                         th:text="${responseMessage.message}">
+                                    </div>
+                                </div>
+
+                                <div class="pt-4 pb-2">
+                                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+                                </div>
+
+                                <form class="row g-3 needs-validation" method="POST" novalidate th:action="@{/register/save}"
+                                      th:object="${user}">
+
+                                    <div class="col-12">
+                                        <label class="form-label" for="firstName">First Name</label>
+                                        <input
+                                                class="form-control"
+                                                id="firstName"
+                                                name="firstName"
+                                                required
+                                                th:classappend="${#fields.hasErrors('firstName') ? 'is-invalid' : ''}"
+                                                th:field="*{firstName}"
+                                                th:value="${user.firstName}"
+                                                type="text"
+                                        >
+                                        <div class="invalid-feedback" th:each="error : ${#fields.errors('firstName')}"
+                                             th:text="${error}">Please, enter your name!
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label class="form-label" for="lastName">Last Name</label>
+                                        <input
+                                                class="form-control"
+                                                id="lastName"
+                                                name="lastName"
+                                                required
+                                                th:classappend="${#fields.hasErrors('lastName') ? 'is-invalid' : ''}"
+                                                th:field="*{lastName}"
+                                                th:value="${user.lastName}"
+                                                type="text">
+                                        <div class="invalid-feedback" th:each="error : ${#fields.errors('lastName')}"
+                                             th:text="${error}">Please, enter your name!
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label class="form-label" for="email">Username (Email)</label>
+                                        <div class="input-group has-validation">
+                                            <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                            <input
+                                                    class="form-control"
+                                                    id="email"
+                                                    name="email"
+                                                    required
+                                                    th:classappend="${#fields.hasErrors('email') ? 'is-invalid' : ''}"
+                                                    th:field="*{email}"
+                                                    th:value="${user.email}"
+                                                    type="email"
+                                            >
+                                            <div class="invalid-feedback" th:each="error : ${#fields.errors('email')}"
+                                                 th:text="${error}">Please choose a username.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label class="form-label" for="password">Password</label>
+                                        <input
+                                                class="form-control"
+                                                id="password"
+                                                name="password"
+                                                required
+                                                th:classappend="${#fields.hasErrors('password') ? 'is-invalid' : ''}"
+                                                th:field="*{password}"
+                                                th:value="${user.password}"
+                                                type="password"
+                                        >
+                                        <div class="invalid-feedback" th:each="error : ${#fields.errors('password')}"
+                                             th:text="${error}">Please enter your password!
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <p class="small mb-0">Already have an account? <a th:href="@{/dashboard}">Log
+                                            in</a></p>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+</main><!-- End #main -->
+
+<a class="back-to-top d-flex align-items-center justify-content-center" href="#"><i
+        class="bi bi-arrow-up-short"></i></a>
+<div th:replace="fragments/scripts :: scripts"></div>
+</body>
+</html>
