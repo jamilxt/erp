@@ -13,7 +13,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="index.html">
+            <a class="nav-link " th:href="@{/}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -40,6 +40,13 @@
                 <span>Role</span>
             </a>
         </li><!-- End Role Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" th:href="@{/organizations}">
+                <i class="bi bi-list-check"></i>
+                <span>Organization</span>
+            </a>
+        </li><!-- End organization Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="template-pages/pages-faq.html">

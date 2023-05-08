@@ -11,7 +11,10 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 public class CreateOrganizationRequest {
-	@NotNull
-	@Schema(description = "Organization Name", example = "Brain Station 23")
-	private String name;
+    @NotNull
+    @Schema(description = "Organization Name", example = "Brain Station 23")
+    private String name;
+
+    @NotNull(message = "Can not be null")
+    private String code;
 }

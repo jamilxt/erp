@@ -14,4 +14,7 @@ public class UpdateOrganizationRequest {
 	@NotNull
 	@Schema(description = "Organization Name", example = "Brain Station 23")
 	private String name;
+
+	@NotNull(message = "Can not be null")
+	private String code;
 }
