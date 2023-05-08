@@ -1,32 +1,32 @@
 # ============== ubuntu mysql info ==========
 
-spring:
-  datasource:
-    password: Root@#_88888888
-    username: root
-    url: jdbc:mysql://localhost:3306/erp
-  jpa:
-    show-sql: true
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
-    hibernate:
-      ddl-auto: update
+#spring:
+#  datasource:
+#    password: Root@#_88888888
+#    username: root
+#    url: jdbc:mysql://localhost:3306/erp
+#  jpa:
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+#    hibernate:
+#      ddl-auto: update
 
 
       # ============== demo ==========
-#      spring:
-#        datasource:
-#          url: jdbc:postgresql://dpg-cgct3sndvk4htnq4hbfg-a.oregon-postgres.render.com/borrowmybook_bz9i
-#          username: borrowmybook_user
-#          password: hMBChitOx4iFDBDMV9gfP6z69p8NLbTM
-#        jpa:
-#          show-sql: true
-#          properties:
-#            hibernate:
-#              dialect: org.hibernate.dialect.PostgreSQLDialect
-#          hibernate:
-#            ddl-auto: update
+      spring:
+        datasource:
+          url: jdbc:postgresql://dpg-chcc5uu7avjcvo74sj0g-a.oregon-postgres.render.com/erp_yjhy
+          username: erp_yjhy_user
+          password: ta5LeFLINtCb2uhVByc5xtG7CbsFZqug
+        jpa:
+          show-sql: true
+          properties:
+            hibernate:
+              dialect: org.hibernate.dialect.PostgreSQLDialect
+          hibernate:
+            ddl-auto: update
 
 
       # ============== database created for this project information ==========

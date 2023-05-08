@@ -76,9 +76,9 @@ public class OrganizationController {
                 return "organization/new-organization";
             }
             organizationService.createOne(request);
-            return "redirect:/organization";
+            return "redirect:/organizations";
         } catch (Exception e) {
-            return "redirect:/organization/create";
+            return "redirect:/organizations/create";
         }
     }
 
@@ -102,15 +102,15 @@ public class OrganizationController {
                 return "organization/update-organization";
             }
             organizationService.updateOne( id, request);
-            return "redirect:/organization";
+            return "redirect:/organizations";
         } catch (Exception e) {
-            return "redirect:/organization";
+            return "redirect:/organizations";
         }
     }
 
     @GetMapping("{id}/delete")
     public String deleteOrganization(@PathVariable UUID id) {
         organizationService.deleteOne(id);
-        return "redirect:/organization";
+        return "redirect:/organizations";
     }
 }

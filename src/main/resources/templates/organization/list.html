@@ -39,12 +39,12 @@
                                 <td th:text="${o.name}"></td>
                                 <td th:text="${o.code}"></td>
                                 <td>
-                                    <a class="btn btn-sm btn-success" th:href="@{/organizations/{id}/ (id = ${organization.id})}"><i
+                                    <a class="btn btn-sm btn-success" th:href="@{/organizations/{id}/ (id = ${o.id})}"><i
                                             class="fas bi-eye"></i></a>
-                                    <a class="btn btn-sm btn-primary" th:href="@{'/organizations/' + ${organization.id} + '/update'}"><i
+                                    <a class="btn btn-sm btn-primary" th:href="@{'/organizations/' + ${o.id} + '/update'}"><i
                                             class="fas bi-pen"></i></a>
                                     <a class="btn btn-sm btn-danger" href="#"
-                                       th:onclick="deleteItem([[${organization.id}]], '/organizations/', 'Organizations')"><i
+                                       th:onclick="deleteItem([[${o.id}]], '/organizations/', 'Organizations')"><i
                                             class="fas bi-trash"></i></a>
                                 </td>
                             </tr>
