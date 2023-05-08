@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
->
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -13,21 +14,25 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " th:href="@{/}">
+            <a class="nav-link " th:href="@{/dashboard}"
+               th:classappend="${#httpServletRequest.getRequestURI() == '/dashboard' ? 'active':''}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" th:href="@{/profile}">
+            <a class="nav-link collapsed" th:href="@{/profile}"
+               th:classappend="${#httpServletRequest.getRequestURI().startsWith('/profile') ? 'active':''}"
+               sec:authorize="hasAnyAuthority('Admin', 'Employee', 'SuperAdmin')">
                 <i class="bi bi-person"></i>
                 <span>Profile</span>
             </a>
         </li><!-- End Profile Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" th:href="@{/users}">
+            <a class="nav-link collapsed" th:href="@{/users}"
+               th:classappend="${#httpServletRequest.getRequestURI().startsWith('/users') ? 'active':''}">
                 <i class="bi bi-people"></i>
                 <span>User</span>
             </a>
@@ -35,15 +40,17 @@
 
 
         <li class="nav-item">
-            <a class="nav-link collapsed" th:href="@{/roles}">
+            <a class="nav-link collapsed" th:href="@{/roles}"
+               th:classappend="${#httpServletRequest.getRequestURI().startsWith('/roles') ? 'active':''}">
                 <i class="bi bi-list-check"></i>
                 <span>Role</span>
             </a>
         </li><!-- End Role Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" th:href="@{/organizations}">
-                <i class="bi bi-list-check"></i>
+            <a class="nav-link collapsed" th:href="@{/organizations}"
+               th:classappend="${#httpServletRequest.getRequestURI().startsWith('/organizations') ? 'active':''}">
+                <i class="bi bi-house"></i>
                 <span>Organization</span>
             </a>
         </li><!-- End organization Page Nav -->

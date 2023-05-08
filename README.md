@@ -75,3 +75,37 @@ As an Employee user, I can
    or, you can run via your preferred IDE's RUN/PLAY button.
 5. After running the application, it will be up & running at: http://localhost:8080
 6. You can also access the Swagger API Doc by going to: http://localhost:8080/swagger-ui/index.html# . Feel free to execute the Organization's REST APIs which I prepared for you guys to play with.
+
+
+<p align="center">
+<h1>Output</h1>
+<hr>
+
+## Homepage
+![img.png](readmefile/img.png)
+
+<img src="readmefile/img_1.png" alt="image description" width="300" height="400">
+
+## Login Page
+
+![img_5.png](readmefile/img_5.png)
+
+## Register Page
+![img_4.png](readmefile/img_4.png)
+
+## Dashboard
+![img_2.png](readmefile/img_2.png)
+
+Top
+
+<img src="readmefile/img6.png" alt="image description" width="250" height="400">
+
+Bottom
+
+<img src="readmefile/img_7.png" alt="image description" width="250" height="400">
+
+## Profile
+
+## User CRUD
+
+## Role CRUD
