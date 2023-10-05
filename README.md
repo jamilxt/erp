@@ -37,8 +37,8 @@ As an Employee user, I can
    - [ ] /organizations
    - [ ] /employees
 - [ ] REST API
-   - [ ] /api/login (JWT)
-   - [ ] /api/signup (public)
+   - [X] /api/login (JWT)
+   - [X] /api/signup (public)
    - [ ] /api/users (secured, authorized to ADMIN only)
    - [ ] /api/roles (secured, authorized to ADMIN only)
    - [X] /api/organization (secured, authorized to ADMIN for CRUD, VIEW for EMPLOYEE)
