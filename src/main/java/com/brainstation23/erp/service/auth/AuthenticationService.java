@@ -1,5 +1,6 @@
 package com.brainstation23.erp.service.auth;
 
+import com.brainstation23.erp.model.dto.UserDTO;
 import com.brainstation23.erp.model.dto.auth.AuthenticationRequest;
 import com.brainstation23.erp.model.dto.auth.AuthenticationResponse;
 import com.brainstation23.erp.model.dto.auth.RegisterRequest;
@@ -16,6 +17,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
@@ -31,7 +34,7 @@ public class AuthenticationService {
                 .lastname(request.getLastname())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.USER)
+                .role(request.getRole())
                 .build();
         var userSaved = repository.save(user);
         var jwtToken = jwtService.generateToken(user);
@@ -82,5 +85,8 @@ public class AuthenticationService {
     }
 
 
+    public List<UserDTO> getAllUsers() {
+        return repository.getAllUser();
+    }
 }
 

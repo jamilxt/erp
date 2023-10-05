@@ -11,7 +11,7 @@ As an Admin user, I can
 - Log in
 - VIEW & EDIT my profile info (first name, last name...)
 - CRUD Users
-- CRUD Roles (Only 2 Roles: ADMIN, Employee)
+-  Roles Static (Only 2 Roles: ADMIN, Employee)
 - CRUD Organizations
 - CRUD Employees
 - Log out
@@ -39,8 +39,8 @@ As an Employee user, I can
 - [ ] REST API
    - [X] /api/login (JWT)
    - [X] /api/signup (public)
-   - [ ] /api/users (secured, authorized to ADMIN only)
-   - [ ] /api/roles (secured, authorized to ADMIN only)
+   - [X] /api/users (secured, authorized to ADMIN only)
+   - [X] /api/roles (secured, authorized to ADMIN only) - Static role EMPLOYEE, ADMIN, GUEST
    - [X] /api/organization (secured, authorized to ADMIN for CRUD, VIEW for EMPLOYEE)
 - [x] API Doc: Swagger
 - [x] Mapper: Mapstruct
