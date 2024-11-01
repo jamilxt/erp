@@ -50,6 +50,7 @@ As an Employee user, I can
 - [ ] Implement JPA Auditing
 - [ ] Write Unit Test
 - [ ] Setup different database driver in a different profile
+- [ ] Config CORS
 - [ ] Upgrade to Spring Boot 3
 - [ ] Deployment (profile: develop)
 - [ ] Update Documentation (README.md)
