@@ -44,7 +44,7 @@ As an Employee user, I can
    - [X] /api/organization (secured, authorized to ADMIN for CRUD, VIEW for EMPLOYEE)
 - [x] API Doc: Swagger
 - [x] Mapper: Mapstruct
-- [x] Code Formatter: Spotless
+- [ ] Code Formatter: Spotless
 - [ ] Apply Spring Security
 - [ ] Global Exception Handler
 - [ ] Implement JPA Auditing
